@@ -138,3 +138,6 @@ RUN wget -O /usr/local/bin/kubectl "https://storage.googleapis.com/kubernetes-re
 RUN wget -O /usr/local/bin/kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-linux-amd64" \
     && chmod +x /usr/local/bin/kind
 
+
+ADD pipshell.sh /
+ENTRYPOINT './pipshell.sh'
