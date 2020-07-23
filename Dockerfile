@@ -35,6 +35,7 @@ RUN set -ex \
 	\
 	&& apk add --no-cache --virtual .build-deps  \
 	  alpine-sdk \
+	  py3-typed-ast \
 		bluez-dev \
 		bzip2-dev \
 		coreutils \
