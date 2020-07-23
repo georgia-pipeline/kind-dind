@@ -35,7 +35,6 @@ RUN set -ex \
 	\
 	&& apk add --no-cache --virtual .build-deps  \
 	  alpine-sdk \
-	  py3-typed-ast \
 		bluez-dev \
 		bzip2-dev \
 		coreutils \
@@ -131,6 +130,9 @@ RUN set -ex; \
 			\( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
+
+RUN apk add --no-cache --virtual .build-deps  \
+	  py3-typed-ast
 
 RUN pip install pipenv
 
