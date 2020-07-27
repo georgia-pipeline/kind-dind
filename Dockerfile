@@ -137,7 +137,7 @@ RUN apk add --no-cache --virtual .build-deps \
 	  build-base
 
 RUN pip install pipenv \
-	  py3-typed-ast
+	  typed-ast
 
 RUN wget -O /usr/local/bin/kubectl "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl" \
     && chmod +x /usr/local/bin/kubectl
