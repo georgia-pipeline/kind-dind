@@ -131,19 +131,17 @@ RUN set -ex; \
 		\) -exec rm -rf '{}' +; \
 	rm -f get-pip.py
 
-RUN apk add --no-cache --virtual .build-deps  \
+RUN apk add --no-cache --virtual .build-deps \
 	  python3-dev \
 	  gcc \
-	  build-base \
+	  build-base
 
-RUN apk add --no-cache --virtual .build-deps  \
-	  py3-typed-ast
-
-RUN pip install pipenv
+RUN apk add --no-cache --virtual .build-deps \
+	  py3-typed-ast \
+	  pipenv
 
 RUN wget -O /usr/local/bin/kubectl "https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl" \
     && chmod +x /usr/local/bin/kubectl
 
 RUN wget -O /usr/local/bin/kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-linux-amd64" \
     && chmod +x /usr/local/bin/kind
-
