@@ -1,4 +1,5 @@
 FROM docker:dind
+RUN sed -i -E -e 's/localhost$/localhost docker/g' /etc/hosts
 
 # ensure local python is preferred over distribution python
 ENV PATH /usr/local/bin:$PATH
